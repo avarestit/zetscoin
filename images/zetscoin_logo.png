@@ -1,0 +1,191 @@
+# Zetscoin (ZET)
+
+An ERC20 token implementation on the Ethereum blockchain, designed to provide secure, transparent, and efficient value transfer in the decentralized finance ecosystem.
+
+![Zetscoin Logo](images/zetscoin_logo.png)
+
+## Overview
+
+Zetscoin is a community-driven blockchain token built with modern Web3 standards. It leverages the Ethereum network and OpenZeppelin's audited libraries to ensure security, transparency, and compatibility with the broader DeFi ecosystem.
+
+## Key Features
+
+✨ **ERC20 Standard**
+- Fully compatible with Ethereum wallets and exchanges
+- Seamless integration with DeFi protocols and dApps
+
+🔐 **Security**
+- Built on OpenZeppelin audited contracts
+- Open-source code for community review and verification
+- Industry-standard smart contract practices
+
+💎 **Tokenomics**
+- **Total Supply**: 1,000,000 ZET
+- **Symbol**: ZET
+- **Decimals**: 18
+- **Balanced Distribution**: Public sale, team, and reserve allocations
+
+🚀 **Ecosystem Features**
+- Minting and burning capabilities for supply management
+- Owner-controlled access for critical operations
+- Transparent and auditable transaction history
+
+## Contract Details
+
+### Token Specifications
+
+| Parameter | Value |
+|-----------|-------|
+| Name | Zetscoin |
+| Symbol | ZET |
+| Decimals | 18 |
+| Standard | ERC20 |
+| Network | Ethereum Mainnet |
+
+### Smart Contract Functions
+
+- **`transfer(address to, uint256 amount)`** - Transfer tokens to another address
+- **`approve(address spender, uint256 amount)`** - Approve token spending
+- **`mint(address to, uint256 amount)`** - Owner function to mint new tokens
+- **`burn(uint256 amount)`** - Burn tokens from sender's account
+
+## Repository Structure
+
+```
+zetscoin/
+├── contracts/
+│   └── Zetscoin.sol              # Main ERC20 smart contract
+├── docs/
+│   ├── whitepaper.md             # Detailed whitepaper and vision
+│   └── tokenomics.md             # Token economics and distribution
+├── images/
+│   └── zetscoin_logo.png         # Official Zetscoin logo
+└── README.md                      # This file
+```
+
+### Directory Descriptions
+
+**`contracts/`**
+Contains the Solidity smart contracts for Zetscoin. The main contract `Zetscoin.sol` implements the ERC20 standard with additional minting and burning capabilities.
+
+**`docs/`**
+Comprehensive documentation including:
+- **whitepaper.md** - Vision, technology stack, and use cases
+- **tokenomics.md** - Supply distribution, vesting schedules, and economics
+
+**`images/`**
+Brand assets and visual resources for Zetscoin.
+
+## Getting Started
+
+### Prerequisites
+- Node.js and npm
+- Solidity compiler (solc)
+- Hardhat or Truffle (recommended for deployment)
+- MetaMask or similar Web3 wallet
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/avarestit/zetscoin.git
+cd zetscoin
+
+# Install dependencies
+npm install
+```
+
+### Deployment
+
+#### Using Hardhat
+
+1. **Configure your environment**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your private key and RPC provider
+   ```
+
+2. **Deploy the contract**
+   ```bash
+   npx hardhat run scripts/deploy.js --network ethereum
+   ```
+
+3. **Verify on Etherscan** (optional)
+   ```bash
+   npx hardhat verify --network ethereum <CONTRACT_ADDRESS> <INITIAL_SUPPLY>
+   ```
+
+#### Initial Supply
+
+The constructor accepts an `initialSupply` parameter (in whole tokens). For example:
+- To mint 1,000,000 ZET: `Zetscoin(1000000)`
+- Tokens are automatically multiplied by 10^18 (decimals) in the contract
+
+## Usage Examples
+
+### Transfer Tokens
+```javascript
+const zetscoin = await Zetscoin.deployed();
+await zetscoin.transfer(recipientAddress, ethers.utils.parseUnits('100', 18));
+```
+
+### Mint New Tokens (Owner Only)
+```javascript
+await zetscoin.mint(recipientAddress, ethers.utils.parseUnits('50000', 18));
+```
+
+### Burn Tokens
+```javascript
+await zetscoin.burn(ethers.utils.parseUnits('1000', 18));
+```
+
+## Documentation
+
+- 📄 [Whitepaper](docs/whitepaper.md) - Complete vision and technology overview
+- 💰 [Tokenomics](docs/tokenomics.md) - Token distribution and economics model
+- 🔧 [Smart Contract](contracts/Zetscoin.sol) - Solidity implementation
+
+## Security
+
+- ✅ Uses OpenZeppelin ERC20 implementation
+- ✅ Open-source code for community audit
+- ✅ Follows Solidity best practices
+- ✅ Input validation and access control
+
+## Roadmap
+
+### Phase 1: Foundation (Q1 2026)
+- Smart contract deployment
+- Community governance setup
+- Initial liquidity provision
+
+### Phase 2: Ecosystem (Q2 2026)
+- Launch staking mechanism
+- Partner integration
+- DeFi platform integration
+
+### Phase 3: Scale (Q3-Q4 2026)
+- Cross-chain bridges
+- Layer 2 optimization
+- Enterprise partnerships
+
+## Community & Support
+
+- **GitHub Issues**: Report bugs and request features
+- **Discord**: Join our community discussions
+- **Twitter**: Follow @ZetscoinOfficial for updates
+- **Email**: support@zetscoin.io
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Disclaimer
+
+Zetscoin is provided as-is for educational and development purposes. Users are responsible for understanding the risks associated with blockchain technology and cryptocurrency. Always conduct thorough due diligence before participating in any token or blockchain project.
+
+---
+
+**Built with ❤️ by the Zetscoin Team**
+
+For more information, visit [zetscoin.io](https://zetscoin.io) or read our [whitepaper](docs/whitepaper.md).
